@@ -4,9 +4,9 @@ Library  ${CURDIR}/../utils-ci/utils.py
 
 *** Keywords ***
 Abrir Navegador
-    ${TEST}=  Teste Nome  Marcelo
-    Log  Marcelo
-    Open Browser  https://www.google.com/  headlesschrome
+    Carregar Env  ${CURDIR}/.env
+    ${BASE_URL}=  Coletar Env  BASE_URL
+    Open Browser  ${BASE_URL}  headlesschrome
     Maximize Browser Window
 
 Fechar Navegador
