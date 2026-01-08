@@ -11,30 +11,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      # Checkout do projeto de testes
+      - name: Checkout do projeto de testes
         uses: actions/checkout@v4
+        with:
+          path: robot-demo-dois
 
+      # Checkout do utils-ci
+      - name: Checkout do utils-ci
+        uses: actions/checkout@v4
+        with:
+          repository: marcelojunqueirat/utils-ci
+          path: utils-ci
+          # token: ${{ secrets.GH_TOKEN }}  # só se o repo for privado
+
+      # Configurar Python
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
+      # Instalar dependências do projeto
       - name: Instalar dependências do projeto
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r robot-demo-dois/requirements.txt
 
+      # Instalar Google Chrome
       - name: Instalar Google Chrome
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
+      # Executar testes Robot Framework
       - name: Executar testes Robot Framework
-        run: robot -d results google.robot
+        run: |
+          cd robot-demo-dois
+          robot -d results google.robot
 
+      # Upload dos relatórios
       - name: Upload dos relatórios
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: robot-results
-          path: results
+          path: robot-demo-dois/results
