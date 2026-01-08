@@ -10,9 +10,9 @@ Pesquisar por teste no google
     Input Text  id=APjFqb  teste
     Press Keys  None  TAB
 
-    Wait Until Element Is Visible  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google"]  10s
-    Page Should Contain Element  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google"]
-    Click Element  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google"]
+    Wait Until Element Is Visible  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google" or @value="Google Search"]  10s
+    Page Should Contain Element  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google" or @value="Google Search"]
+    Click Element  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google" or @value="Google Search"]
 
 
     # Wait Until Element Is Visible  id=rcnt  10s
