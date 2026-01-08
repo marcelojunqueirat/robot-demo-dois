@@ -29,12 +29,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Instalar dependências do projeto robo-demo-dois + utils-ci
+      # Instalar dependências do projeto robot-demo-dois + utils-ci
       - name: Instalar dependências
         run: |
           python -m pip install --upgrade pip
           # Dependências do projeto
-          pip install -r meu-projeto-testes/requirements.txt
+          pip install -r robot-demo-dois/requirements.txt
           # Dependências do utils-ci (sem --user)
           pip install -r utils-ci/requirements.txt
 
