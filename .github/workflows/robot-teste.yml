@@ -11,13 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout do projeto de testes
-      - name: Checkout do projeto de testes
+      - name: Checkout do projeto de robot-demo-dois
         uses: actions/checkout@v4
         with:
           path: robot-demo-dois
 
-      # Checkout do utils-ci
       - name: Checkout do utils-ci
         uses: actions/checkout@v4
         with:
@@ -25,13 +23,18 @@ jobs:
           path: utils-ci
           # token: ${{ secrets.GH_TOKEN }}  # só se o repo for privado
 
+      - name: Instalar dependências do utils-ci
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r utils-ci/requirements.txt
+
       # Configurar Python
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # Instalar dependências do projeto
+      # Instalar dependências do projeto robot-demo-dois
       - name: Instalar dependências do projeto
         run: |
           python -m pip install --upgrade pip
