@@ -1,8 +1,11 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  ${CURDIR}/../utils-ci/utils.py
 
 *** Keywords ***
 Abrir Navegador
+    ${TEST}=  Teste Nome  Marcelo
+    Log  Marcelo
     Open Browser  https://www.google.com/  headlesschrome
     Maximize Browser Window
 
