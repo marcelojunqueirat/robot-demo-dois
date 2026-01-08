@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 
 *** Keywords ***
 Abrir Navegador
-    Open Browser  https://www.google.com/  gc
+    Open Browser  https://www.google.com/  headlesschrome
     Maximize Browser Window
 
 Fechar Navegador

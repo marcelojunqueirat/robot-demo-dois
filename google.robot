@@ -8,6 +8,7 @@ Test Teardown  Fechar Navegador
 Pesquisar por teste no google
     Wait Until Element Is Visible  id=APjFqb  10s
     Input Text  id=APjFqb  teste
+    Press Keys  None  TAB
 
     Wait Until Element Is Visible  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google"]  10s
     Page Should Contain Element  //div[contains(@class, "FPdoLc")]//input[@value="Pesquisa Google"]
