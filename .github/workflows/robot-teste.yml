@@ -29,16 +29,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
-      - name: Instalar ChromeDriver compatível
-        run: |
-          python - <<EOF
-          from webdriver_manager.chrome import ChromeDriverManager
-          ChromeDriverManager().install()
-          EOF
-
       - name: Executar testes Robot Framework
         run: robot -d results google.robot
-
 
       - name: Upload dos relatórios
         if: always()
