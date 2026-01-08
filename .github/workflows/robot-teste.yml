@@ -23,22 +23,20 @@ jobs:
           path: utils-ci
           # token: ${{ secrets.GH_TOKEN }}  # só se o repo for privado
 
-      - name: Instalar dependências do utils-ci
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r utils-ci/requirements.txt
-
       # Configurar Python
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # Instalar dependências do projeto robot-demo-dois
-      - name: Instalar dependências do projeto
+      # Instalar dependências do projeto robo-demo-dois + utils-ci
+      - name: Instalar dependências
         run: |
           python -m pip install --upgrade pip
-          pip install -r robot-demo-dois/requirements.txt
+          # Dependências do projeto
+          pip install -r meu-projeto-testes/requirements.txt
+          # Dependências do utils-ci (sem --user)
+          pip install -r utils-ci/requirements.txt
 
       # Instalar Google Chrome
       - name: Instalar Google Chrome
